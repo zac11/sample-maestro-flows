@@ -1,0 +1,6 @@
+# flow.yaml
+
+appId: hibernate.v2.testyourandroid
+---
+- launchApp
+- tapOn: "Flashlight"
