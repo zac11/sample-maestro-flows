@@ -1,0 +1,15 @@
+#initial_setup.flow.yaml
+
+appId: com.phdv.universal
+---
+- launchApp
+- extendedWaitUntil:
+    notVisible: 
+        id: com.phdv.universal:id/img_main_logo # or any other selector
+    timeout: 15000
+
+- assertVisible: "Sign in to Unlock Offers"
+- assertVisible: "Continue as guest"
+- takeScreenshot: LandingPage
+- tapOn : "Continue as guest"
+

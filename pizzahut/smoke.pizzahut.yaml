@@ -1,0 +1,10 @@
+# flow.yaml
+
+appId: com.phdv.universal
+---
+- launchApp
+- waitForAnimationToEnd:
+    timeout: 5000
+
+- takeScreenshot: Loadingscreen
+- clearState

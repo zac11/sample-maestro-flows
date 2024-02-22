@@ -1,0 +1,16 @@
+# betterment-launchapp.yaml
+
+appId: com.betterment
+---
+- launchApp
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible: "Investing made better."
+- extendedWaitUntil:
+    visible: "Get Started" # or any other selector
+    timeout: 5000
+#- takeScreenshot: MainScreen 
+- tapOn: "Log in"
+- inputText: "Hello World"
+- inputRandomText
+- back
