@@ -1,0 +1,19 @@
+# landingpage_deals.flow.yaml
+
+appId: com.phdv.universal
+name: Landing Page Deals Flow
+tags:
+  - landingpage
+  - app-functional
+  - deals
+
+onFlowStart:
+  - runFlow: initial_setup.flow.yaml
+ # - runScript: setup.js
+ # - <any other command>
+---
+- assertVisible: "Hot Deals"
+- tapOn: "View Deals"
+
+
+- clearState

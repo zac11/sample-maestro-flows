@@ -1,0 +1,41 @@
+# delivery.flow.yaml
+
+appId: com.phdv.universal
+name: Takeaway Flow
+tags:
+  - take-away
+  - app-functional
+env:
+  CART_COUNT: 1
+onFlowStart:
+  - runFlow: initial_setup.flow.yaml
+ # - runScript: setup.js
+ # - <any other command>
+---
+- tapOn: "Takeaway"
+- setLocation:
+    latitude: 28.530482
+    longitude: 77.3892943
+- assertVisible: "Start my order"
+- tapOn: "Start my order"
+- extendedWaitUntil:
+    visible: "Vegetarian" # or any other selector
+    timeout: 25000
+- tapOn: "Pizzas"
+- waitForAnimationToEnd:
+    timeout: 10000
+- tapOn:
+    above: "Ultimate Tandoori Veggie"
+- tapOn: "Medium"
+- tapOn: "Add to Cart"
+- extendedWaitUntil:
+    notVisible:
+        id: com.phdv.universal:id/ivLoading
+    timeout: 25000
+- waitForAnimationToEnd:
+    timeout: 10000
+- copyTextFrom:
+    id: com.phdv.universal:id/tv_basket_count
+- assertTrue: ${maestro.copiedText == CART_COUNT}
+
+- clearState 
